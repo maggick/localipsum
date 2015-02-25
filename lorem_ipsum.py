@@ -21,7 +21,15 @@ def main():
     # sort all the words ? (if not to slow)
 
     # print random
-    print(words[random.randint(0, len(words)-1)])
+    print(printWords(words, 5))
+
+
+def printWords(words, n):
+    str = ""
+    for i in range(0, n-1):
+        str += words[random.randint(0, len(words)-1)]+" "
+    return str + words[random.randint(0, len(words)-1)]
+
 
 if __name__ == "__main__":
     main()

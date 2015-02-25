@@ -21,7 +21,8 @@ def main():
     # sort all the words ? (if not to slow)
 
     # print random
-    print(printWords(words, 5))
+    # print(printWords(words, 5))
+    print(printParagraphs(words, 5))
 
 
 def printWords(words, n):
@@ -29,6 +30,13 @@ def printWords(words, n):
     for i in range(0, n-1):
         str += words[random.randint(0, len(words)-1)]+" "
     return str + words[random.randint(0, len(words)-1)]
+
+
+def printParagraphs(words, n):
+    str = ""
+    for i in range(0, n-1):
+        str += printWords(words, random.randint(25, 45))+".\n\n"
+    return str + printWords(words, random.randint(25, 45))+"."
 
 
 if __name__ == "__main__":

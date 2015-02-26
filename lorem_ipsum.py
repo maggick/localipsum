@@ -2,23 +2,38 @@
 
 import os
 import random
+import sys
+import argparse
 
 
 def main():
-    # open all files contain in locations
-    locations = open('locations', 'r')
+    # let's build a word list
     words = []
-    for location in locations:
-        if os.path.exists(location.strip()):
-            try:
-                for filename in os.listdir(location.strip()):
-                    f = open(location.strip()+filename, 'r')
-                    for line in f:
-                        words.append(line.strip())
-            except FileNotFoundError:
-                pass
 
-    # sort all the words ? (if not to slow)
+    # let's see if there is a locations file
+    try:
+        locations = open('locations', 'r')
+    except FileNotFoundError:
+        print("No location file found, you need one !")
+        sys.exit(0)
+
+    # open all files contain in locations
+    for location in locations:
+        if location[0] != '#':
+            if os.path.exists(location.strip()):
+                try:
+                    for filename in os.listdir(location.strip()):
+                        f = open(location.strip()+filename, 'r')
+                        for line in f:
+                            words.append(line.strip())
+                except FileNotFoundError:
+                    pass
+
+    if len(words) == 0:
+        print("No dictionary found, you may want to add one in the locations file")
+        sys.exit(0)
+
+    # TODO sort all the words ? (if not to slow)
 
     str = "Lorem ipsum dolor sit amet, "
 
@@ -29,7 +44,7 @@ def main():
 
 
 def printWords(words, n):
-    # if n > ? : let's add some comma
+    # TODO if n > ? : let's add some comma
     str = ""
     for i in range(0, n-1):
         str += words[random.randint(0, len(words)-1)]+" "

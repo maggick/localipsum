@@ -7,6 +7,23 @@ import argparse
 
 
 def main():
+    parser = argparse.ArgumentParser(description='TODO')
+    parser.add_argument('integer', type=int,
+                   help='The number of [paragraphes|sentences|words] you want.')
+    parser.add_argument('--paragraphs', action='store_true')
+    parser.add_argument('--sentences', action='store_true')
+    parser.add_argument('--words', action='store_true')
+    parser.add_argument('--lorem', action='store_true')
+
+    args = parser.parse_args()
+
+    if not (args.paragraphs or args.sentences or args.words):
+        print('One of the following argument is required:\n\
+                --paragraphs\n\
+                --sentences\n\
+                --words ')
+        sys.exit(0)
+
     # let's build a word list
     words = []
 
@@ -29,17 +46,27 @@ def main():
                 except FileNotFoundError:
                     pass
 
+    # did we find a dictionary ?
     if len(words) == 0:
         print("No dictionary found, you may want to add one in the locations file")
         sys.exit(0)
 
     # TODO sort all the words ? (if not to slow)
 
-    str = "Lorem ipsum dolor sit amet, "
+    str = ""
+    if args.lorem:
+        # let's start with the well know Latin locution
+        str = "Lorem ipsum dolor sit amet, "
 
     # print random
-    # str += printWords(words, 5)
-    str += printParagraphs(words, 5)
+    n = args.integer
+    if args.paragraphs:
+        str += printParagraphs(words, n)
+    if args.sentences:
+        str += printSentences(words, n)
+    if args.words:
+        str += printWords(words, n)
+
     print(str)
 
 

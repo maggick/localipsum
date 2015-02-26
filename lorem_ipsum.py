@@ -41,8 +41,11 @@ def main():
                 try:
                     for filename in os.listdir(location.strip()):
                         f = open(location.strip()+filename, 'r')
-                        for line in f:
-                            words.append(line.strip())
+                        try:
+                            for line in f:
+                                words.append(line.strip())
+                        except UnicodeDecodeError:
+                            print('No reconize file: {}'.format(filename))
                 except FileNotFoundError:
                     pass
 

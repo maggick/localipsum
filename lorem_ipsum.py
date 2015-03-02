@@ -24,6 +24,11 @@ def main():
                 --words ')
         sys.exit(0)
 
+    n = args.integer
+    if n < 1:
+        print('We need a value > 0')
+        sys.exit(0)
+
     # let's build a word list
     words = []
 
@@ -45,7 +50,8 @@ def main():
                             for line in f:
                                 words.append(line.strip())
                         except UnicodeDecodeError:
-                            print('No reconize file: {}'.format(filename))
+                            print('No reconize file: {}'.format(filename),
+                                  file=sys.stderr)
                 except FileNotFoundError:
                     pass
 
@@ -62,7 +68,6 @@ def main():
         str = "Lorem ipsum dolor sit amet, "
 
     # print random
-    n = args.integer
     if args.paragraphs:
         str += printParagraphs(words, n)
     if args.sentences:

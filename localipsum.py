@@ -8,13 +8,12 @@ import argparse
 
 def main():
     parser = argparse.ArgumentParser(description='TODO')
-    parser.add_argument('integer', type=int,
+    parser.add_argument('integer', type=positive_integer,
                    help='The number of [paragraphes|sentences|words] you want.')
     parser.add_argument('--paragraphs', '-p', action='store_true')
     parser.add_argument('--sentences', '-s', action='store_true')
     parser.add_argument('--words', '-w', action='store_true')
     parser.add_argument('--lorem', '-l', action='store_true')
-
 
     args = parser.parse_args()
 
@@ -23,11 +22,6 @@ def main():
                 --paragraphs\n\
                 --sentences\n\
                 --words ')
-        sys.exit(0)
-
-    n = args.integer
-    if n < 1:
-        print('We need a value > 0')
         sys.exit(0)
 
     # let's build a word list
@@ -68,6 +62,8 @@ def main():
         # let's start with the well know Latin locution
         str = "Lorem ipsum dolor sit amet, "
 
+    n = args.integer
+
     # print random
     if args.paragraphs:
         str += printParagraphs(words, n)
@@ -77,6 +73,13 @@ def main():
         str += printWords(words, n)
 
     print(str)
+
+
+def positive_integer(value):
+    value = int(value)
+    if value <= 0:
+        raise TypeError('The integer must be positive')
+    return value
 
 
 def printWords(words, n):

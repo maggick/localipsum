@@ -1,4 +1,4 @@
-#!/usr/bin/env python3 
+#!/usr/bin/env python3
 
 import os
 import random
@@ -56,6 +56,8 @@ def main():
         sys.exit(0)
 
     # TODO sort all the words ? (if not to slow)
+    # We do not want to sort the list but to remove duplicates
+    # words.sort() does not delete duplicate
 
     str = ""
     if args.lorem:
@@ -84,9 +86,16 @@ def positive_integer(value):
 
 def printWords(words, n):
     # TODO if n > ? : let's add some comma
+    comma = False
+    if n > 7:
+        comma = True
     str = ""
     for i in range(0, n-1):
-        str += words[random.randint(0, len(words)-1)]+" "
+        if comma and i > random.randint(0, n):
+            str += words[random.randint(0, len(words)-1)]+", "
+            comma = False
+        else:
+            str += words[random.randint(0, len(words)-1)]+" "
     return (str + words[random.randint(0, len(words)-1)])
 
 

@@ -10,10 +10,11 @@ def main():
     parser = argparse.ArgumentParser(description='TODO')
     parser.add_argument('integer', type=int,
                    help='The number of [paragraphes|sentences|words] you want.')
-    parser.add_argument('--paragraphs', action='store_true')
-    parser.add_argument('--sentences', action='store_true')
-    parser.add_argument('--words', action='store_true')
-    parser.add_argument('--lorem', action='store_true')
+    parser.add_argument('--paragraphs', '-p', action='store_true')
+    parser.add_argument('--sentences', '-s', action='store_true')
+    parser.add_argument('--words', '-w', action='store_true')
+    parser.add_argument('--lorem', '-l', action='store_true')
+
 
     args = parser.parse_args()
 

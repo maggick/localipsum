@@ -10,5 +10,5 @@ dictionaries folders (one per line). You can comment any path with by placing a
 # Improvements
 
 There is some improvements to add to this project as the `TODO` in the code show
-it. Moreover the is no support for the vim dictionaries files (.sug and .spl
-files).
+it. Moreover the the vim dictionaries files (.sug and .spl files) are not 
+supported.

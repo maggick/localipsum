@@ -1,8 +1,18 @@
-/usr/share/vim/vim74/spell/
-#~/.vim/spell/
-#~/.vim/after/spell/
-#~/.vim/spell/
-#/usr/share/vim74/spell/
-#~/.vim/after/spell/
+# dictionaries
 /usr/share/dict/
 /var/lib/dict/
+
+# vim dictionaries
+#/usr/share/vim/vim*/spell/
+#/usr/share/vim/vim74/spell/
+#~/.vim/spell/
+#~/.vim/after/spell/
+#~/.vim/spell/
+##/usr/share/vim*/spell/
+#/usr/share/vim74/spell/
+#~/.vim/after/spell/
+
+# Firefox dictionaries
+#~/.mozilla/firefox/*.default/extensions/*@dictionaries.addons.mozilla.org/dictionaries/
+~/.mozilla/firefox/cg7959nn.default/extensions/fr-dicollecte@dictionaries.addons.mozilla.org/dictionaries/
+~/.mozilla/firefox/cg7959nn.default/extensions/en-US@dictionaries.addons.mozilla.org/dictionaries/

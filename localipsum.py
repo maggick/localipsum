@@ -85,7 +85,7 @@ def positive_integer(value):
 
 
 def printWords(words, n):
-    # TODO if n > ? : let's add some comma
+    # if n > ? : let's add some comma
     comma = False
     if n > 7:
         comma = True

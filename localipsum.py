@@ -7,13 +7,16 @@ import argparse
 
 
 def main():
-    parser = argparse.ArgumentParser(description='TODO')
+    parser = argparse.ArgumentParser(description='Localispum is a simple \
+            program providing sample text generating from your own \
+            dictionaries')
     parser.add_argument('integer', type=positive_integer,
                    help='The number of [paragraphes|sentences|words] you want.')
     parser.add_argument('--paragraphs', '-p', action='store_true')
     parser.add_argument('--sentences', '-s', action='store_true')
     parser.add_argument('--words', '-w', action='store_true')
-    parser.add_argument('--lorem', '-l', action='store_true')
+    parser.add_argument('--lorem', '-l', action='store_true', help='If set, \
+    start with "Lorem ipsum dolor sit amet,"')
 
     args = parser.parse_args()
 

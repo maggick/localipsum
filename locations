@@ -8,7 +8,7 @@
 #~/.vim/spell/
 #~/.vim/after/spell/
 #~/.vim/spell/
-##/usr/share/vim*/spell/
+#/usr/share/vim*/spell/
 #/usr/share/vim74/spell/
 #~/.vim/after/spell/
 
@@ -16,3 +16,5 @@
 #~/.mozilla/firefox/*.default/extensions/*@dictionaries.addons.mozilla.org/dictionaries/
 ~/.mozilla/firefox/cg7959nn.default/extensions/fr-dicollecte@dictionaries.addons.mozilla.org/dictionaries/
 ~/.mozilla/firefox/cg7959nn.default/extensions/en-US@dictionaries.addons.mozilla.org/dictionaries/
+
+#./dict/

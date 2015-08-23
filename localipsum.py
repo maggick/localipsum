@@ -75,6 +75,8 @@ def main():
     if args.sentences:
         str += printSentences(words, n)
     if args.words:
+        if args.lorem:
+            n -=5
         str += printWords(words, n)
 
     print(str)
@@ -89,6 +91,8 @@ def positive_integer(value):
 
 def printWords(words, n):
     # if n > ? : let's add some comma
+    if n < 1:
+        return ""
     comma = False
     if n > 7:
         comma = True
